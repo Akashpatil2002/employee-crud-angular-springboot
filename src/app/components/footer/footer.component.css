@@ -1,0 +1,42 @@
+.footer {
+background: linear-gradient(270deg, #141E30, #243B55);
+
+
+  background-size: 400% 400%;
+  animation: footerGradient 8s ease infinite;
+  color: #ffffff;
+  text-align: center;
+  padding: 16px 20px;
+  font-family: 'Poppins', 'Segoe UI', sans-serif;
+  font-size: 15px;
+  box-shadow: 0 -3px 12px rgba(0, 0, 0, 0.15);
+  letter-spacing: 0.7px;
+  position: relative;
+  z-index: 1;
+  transition: background 0.4s ease-in-out;
+}
+
+.footer:hover {
+  color: #f1f1f1;
+  letter-spacing: 1px;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+}
+
+/* Optional icon animation (like ❤️ pulsing) */
+.footer::after {
+  content: ' ❤️';
+  animation: pulse 1.6s infinite;
+}
+
+/* Gradient animation */
+@keyframes footerGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Pulse animation */
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
