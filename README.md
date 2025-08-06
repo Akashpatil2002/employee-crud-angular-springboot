@@ -20,6 +20,7 @@ This is a **full-featured Employee Management CRUD System** built using **Angula
 - TypeScript
 - Bootstrap 5
 - HTML5 / CSS3
+- ✅ SweetAlert2 (for modern alert popups)
 
 ### Backend (Suggested):
 - Spring Boot / Node.js
