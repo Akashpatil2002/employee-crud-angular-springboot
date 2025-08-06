@@ -1,0 +1,79 @@
+<app-navbar></app-navbar>
+
+<div class="register-container py-5">
+  <div class="registerov d-flex justify-content-center align-items-center">
+    <div class="register-overlay p-3 shadow rounded-4 bg-white" style="width: 100%; max-width: 500px;">
+      <form class="register-form" [formGroup]="regis" (ngSubmit)="registerData()">
+        <h4 class="text-center mb-4 text-primary fw-bold">Register</h4>
+
+        <!-- Full Name -->
+        <div class="mb-3">
+          <label for="fullname" class="form-label fw-semibold">Full Name</label>
+          <input type="text" id="fullname" name="name" formControlName="name" placeholder="Enter your full name"
+            class="form-control rounded-pill px-3 py-2" [ngClass]="{
+              'is-valid': regis.get('name')?.valid && regis.get('name')?.dirty,
+              'is-invalid': regis.get('name')?.invalid && regis.get('name')?.dirty
+            }" />
+          <div *ngIf="regis.get('name')?.invalid && regis.get('name')?.dirty" class="invalid-feedback ms-2">
+            Name must be at least 10 characters and contain only letters
+          </div>
+          <div *ngIf="regis.get('name')?.valid && regis.get('name')?.dirty" class="valid-feedback ms-2">
+            ✅ Looks good!
+          </div>
+        </div>
+
+        <!-- Email -->
+        <div class="mb-3">
+          <label for="email" class="form-label fw-semibold">Email</label>
+          <input type="email" id="email" name="email" formControlName="email" placeholder="Enter your email"
+            class="form-control rounded-pill px-3 py-2" [ngClass]="{
+              'is-valid': regis.get('email')?.valid && regis.get('email')?.dirty,
+              'is-invalid': regis.get('email')?.invalid && regis.get('email')?.dirty
+            }" />
+          <div *ngIf="regis.get('email')?.invalid && regis.get('email')?.dirty" class="invalid-feedback ms-2">
+            Email must be contain at least 1 number (e.g. abc1&#64;gmail.com)
+          </div>
+          <div *ngIf="regis.get('email')?.valid && regis.get('email')?.dirty" class="valid-feedback ms-2">
+            ✅ Valid Gmail address!
+          </div>
+        </div>
+
+        <!-- Password -->
+        <div class="mb-3">
+          <label for="password" class="form-label fw-semibold">Password</label>
+          <input type="password" id="password" name="password" formControlName="password"
+            placeholder="Create a password" class="form-control rounded-pill px-3 py-2" [ngClass]="{
+              'is-valid': regis.get('password')?.valid && regis.get('password')?.dirty,
+              'is-invalid': regis.get('password')?.invalid && regis.get('password')?.dirty
+            }" />
+          <div *ngIf="regis.get('password')?.invalid && regis.get('password')?.dirty" class="invalid-feedback ms-2">
+            Must have 8+ chars, 1 uppercase, 1 number, 1 special character
+          </div>
+          <div *ngIf="regis.get('password')?.valid && regis.get('password')?.dirty" class="valid-feedback ms-2">
+            ✅ Strong password!
+          </div>
+        </div>
+
+        <!-- Submit -->
+        <div class="text-center">
+          <button type="submit" class="btn btn-success rounded-pill px-4 py-2 mt-3" [disabled]="regis.invalid">
+            Register
+          </button>
+        </div>
+
+        <!-- Login Link -->
+        <p class="text-center mt-4">
+          Already have an account?
+          <a routerLink="/login" style="color: #007bff; text-decoration: none;">Login here</a>
+        </p>
+
+        <!-- Success or Error Message -->
+        <p *ngIf="message" [style.color]="messageColor" class="text-center mt-2 fw-semibold">
+          {{ message }}
+        </p>
+      </form>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

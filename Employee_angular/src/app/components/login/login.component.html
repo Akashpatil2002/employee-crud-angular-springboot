@@ -1,0 +1,67 @@
+<app-navbar></app-navbar>
+
+<!-- <form class="login-form" (submit)="sendData(); $event.preventDefault()"> -->
+<!-- <div class="login-container">
+  <div class="login-overlay">
+
+    <form class="login-form">
+      <h2>Login</h2>
+
+      <div class="input-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" [(ngModel)]="loginUser.username"
+          placeholder="Enter your username" required />
+      </div>
+
+      <div class="input-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" [(ngModel)]="loginUser.password"
+          placeholder="Enter your password" required />
+      </div>
+
+      <button type="submit" (click)="sendData()">Login</button>
+      <p *ngIf="errorMsg" style="color: red; margin-top: 10px;">{{ errorMsg }}</p>
+    </form>
+    <p></p>
+  </div>
+</div> -->
+
+
+
+<div class="login-container">
+  <div class="login-overlay">
+
+    <form class="login-form" (ngSubmit)="sendData()">
+      <h4 class="text-center mb-4 text-primary fw-bold">Login</h4>
+
+      <div class="input-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" [(ngModel)]="loginUser.email" placeholder="Enter your email"
+          required />
+      </div>
+
+      <div class="input-group"><label for="password">Password</label>
+        <input type="password" id="password" name="password" [(ngModel)]="loginUser.password"
+          placeholder="Enter your password" required />
+      </div>
+
+      <button type="submit">Login</button>
+
+      <!-- ✅ Sign-up Link -->
+      <p style="margin-top: 20px; text-align: center;">
+        Don't have an account?
+        <a routerLink="/register" style="color: #007bff; text-decoration: none;">Sign up</a>
+      </p>
+
+      <!-- <p *ngIf="errorMsg" style="color: red; margin-top: 10px;">{{ errorMsg }}</p> -->
+      <p *ngIf="loginMsg" [style.color]="msgColor" style="margin-top: 10px; text-align: center;">
+        {{ loginMsg }}
+      </p>
+
+    </form>
+
+  </div>
+</div>
+
+
+<app-footer></app-footer>

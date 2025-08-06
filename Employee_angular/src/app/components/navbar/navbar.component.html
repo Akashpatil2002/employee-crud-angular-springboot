@@ -1,0 +1,23 @@
+<nav class="custom-navbar">
+  <div class="custom-navbar-wrapper">
+    <div class="custom-navbar-brand">
+
+      <a class="custom-brand-link" routerLink="/" href="">
+        <!-- <h3 class="custom-logo-text">StaffSphere</h3> -->
+        <img src="../../../assets/Logo/logooo.png" alt="Logo" class="logo invert-logo" />
+      </a>
+    </div>
+
+    <div class="custom-menu-icon" (click)="toggleMenu()">
+      <span class="custom-bar"></span>
+      <span class="custom-bar"></span>
+      <span class="custom-bar"></span>
+    </div>
+
+    <div class="custom-navbar-links" [class.nav-active]="menuActive">
+      <a routerLink="/" routerLinkActive="link-active" (click)="closeMenu()">Home</a>
+      <a routerLink="/login" routerLinkActive="link-active" (click)="closeMenu()">Login</a>
+      <a routerLink="/register" routerLinkActive="link-active" (click)="closeMenu()">Register</a>
+    </div>
+  </div>
+</nav>
